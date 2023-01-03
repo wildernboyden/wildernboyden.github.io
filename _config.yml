@@ -84,10 +84,12 @@ author:
   avatar           : "profile.png"
   bio              : "Aspiring graduate student in Applied Mathematics"
   location         : "West Coast"
-  employer         :
-  googlescholar    : 
   email            : wilderboyden@gmail.com
+  orcid            : "https://orcid.org/0000-0002-0527-337X"
+  linkedin         : "https://www.linkedin.com/in/wilder-boyden-scu/"
   researchgate     : "https://www.researchgate.net/profile/Wilder-Boyden"
+  employer         :
+  googlescholar    :
   uri              :
   bitbucket        :
   codepen          :
@@ -101,8 +103,6 @@ author:
   instagram        :
   impactstory      : 
   lastfm           :
-  linkedin         :
-  orcid            : "https://orcid.org/0000-0002-0527-337X"
   pinterest        :
   soundcloud       :
   stackoverflow    : 
@@ -113,7 +113,6 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-
 
 # Reading Files
 include:
