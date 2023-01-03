@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-Hello!
+Hello! I am an aspiring graduate student looking at programs in Applied Mathematics. I earned my B.S. degrees in Mathematics and Physics from Santa Clara University.
