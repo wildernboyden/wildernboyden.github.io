@@ -10,6 +10,6 @@ citation: 'Wilder Boyden & Frank A. Farris (2020). &quot;Polyhedral Symmetry fro
 ---
 Professor Frank Farris and I completed this paper over a sixth month period in 2019. I later presented this research during the poster session at the Golden Section Meeting of the MAA in 2020.
 
-[Download my poster here](http://academicpages.github.io/files/paper1.pdf)
+[Download my poster here](https://wildernboyden.github.io/files/polyhedral-poster.pdf)
 
 Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>Journal 1</i>. 1(1).
