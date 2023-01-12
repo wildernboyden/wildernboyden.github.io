@@ -1,16 +1,9 @@
 ---
 layout: archive
-title: "Publications"
 permalink: /publications/
+title: "Publications"
 author_profile: true
 ---
+[Polyhedral Symmetry from Ribbons and Tubes]({% link _publications/2020-12-11-polyhedral-symmetry.md %})
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
-
-{% include base_path %}
-
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+Wilder Boyden & Frank A. Farris (2021) Polyhedral Symmetry from ribbons and tubes, Journal of Mathematics and the Arts, 15:1, 76-96, DOI: [10.1080/17513472.2020.1855574](https://doi.org/10.1080/17513472.2020.1855574)

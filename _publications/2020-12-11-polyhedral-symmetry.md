@@ -1,15 +1,14 @@
 ---
 title: "Polyhedral Symmetry From Ribbons and Tubes"
 collection: publications
-permalink: /publication/2020-12-11-polyhedral-symmetry
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2020-12-11
-venue: 'Journal of Mathematics and the Arts'
-paperurl: 'https://doi.org/10.1080/17513472.2020.1855574'
-citation: 'Wilder Boyden & Frank A. Farris (2020). &quot;Polyhedral Symmetry from Ribbons and Tubes.&quot; <i>Journal of Mathematics and the Arts</i>. 1(1).'
+permalink: /publications/2020-12-11-polyhedral-symmetry
 ---
-Professor Frank Farris and I completed this paper over a sixth month period in 2019. I later presented this research during the poster session at the Golden Section Meeting of the MAA in 2020.
+Professor [Frank A. Farris](https://webpages.scu.edu/ftp/ffarris/index.html) and I completed this paper over a sixth month period in 2019. In it we use methods from group theory and Fourier series to create shapes with polyhedral symmetry. Then, we decorate these shapes with wallpaper and stage them in a virtual environment using Grasshopper and Photoshop.
 
-[Download my poster here](https://wildernboyden.github.io/files/polyhedral-poster.pdf)
+Here is an example of a twisted 3-band shape with tetrahedral symmetry, decorated with a wooden texture and staged over glass:
 
-Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>Journal 1</i>. 1(1).
+![twisted-bands](/images/twisted-bands.jpg) 
+
+I presented this research during the poster session at the Golden Section Meeting of the MAA in 2020. My poster is displayed below. Please feel free to reach out to me over email if you would like a preprint of the paper, or some of the Maple & Grasshopper files used to make our figures.
+
+ <object data="/files/polyhedral-poster.pdf" width="1000" height="800" type='application/pdf'/>

@@ -1,0 +1,72 @@
+from collections import defaultdict
+
+# A function to check if a given string has identical consecutive letters (ex. "hello" yields true, "ardvark" yields false)
+def has_consecutive_letters(string):
+  for i in range(len(string) - 1):
+    if string[i] == string[i+1]:
+      return True
+  return False
+
+# Loads in the official word list
+my_file = open("Dictionary.txt", "r")
+words = my_file.read().split("\n")
+# Removes an empty entry at the end
+words.pop()
+
+my_file.close()
+
+# The GitHub word list had some words out of alphabetical order
+words.sort()
+
+# Removes all words shorter than three letters or with 13 or more distinct letters
+words = [x for x in words if len(x) > 2 and len(set(x)) <= 12]
+
+# Removes all words with consecutive identical letters
+words_temp = []
+for x in words:
+    if has_consecutive_letters(x) == False:
+        words_temp.append(x)
+words = words_temp
+
+# Creates a dictionary with all 26 letters as keys, and values of lists of the first and last indices in which words starting with those letters occur
+alp = "abcdefghijklmnopqrstuvwxyz"
+index_dict = {}
+for c in alp:
+    index_dict[c] = []
+
+# Case handling the beginning
+index_dict["a"].append(0)
+
+# Populating the meat of index_dict
+j = 0
+for i in range(len(alp)-1):
+    while j <= len(words)-2 and words[j][0] == words[j+1][0]:
+            j += 1
+    index_dict[alp[i]].append(j)
+    index_dict[alp[i+1]].append(j+1)
+    j += 1
+
+# Case handling the end
+index_dict["z"].append(len(words)-1)
+
+# Creates the dictionary that will yield our solution, with parameters:
+# Keys: A sorted concatenated string
+# Values: A list who first two entries are the original two strings, and whose third entry is the frequency of the sorted concatenated string
+sol_dict = defaultdict(lambda: [None,None,0])
+
+# Our word list now has 285024 valid words
+for i in range(len(words)):
+    for j in range(index_dict[words[i][-1]][0],index_dict[words[i][-1]][1]+1):
+        if len(set(words[i]+words[j])) == 12:
+                concat = ''.join(sorted(set(words[i]+words[j])))
+                if sol_dict[concat][2] < 2:
+                    sol_dict[concat][0] = words[i]
+                    sol_dict[concat][1] = words[j]
+                    sol_dict[concat][2] += 1
+
+with open('candidates16', 'w') as file:
+  # Iterate over the dictionary
+  for key in sol_dict:
+    if sol_dict[key][2] == 1:
+        # Write the two candidate words to the file
+        file.write(f'{sol_dict[key][0]}, {sol_dict[key][1]}\n')
