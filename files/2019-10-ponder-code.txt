@@ -1,0 +1,82 @@
+def is_optimal(cs):
+  # Highest change value being considered
+  V = 99
+  # Number of coins in the given coin system
+  notes = len(cs)  
+
+  # Initializes the array of representations for a given coin system
+  reps = [[0 for i in range(notes)] for j in range(V+1)]
+
+  # The array min_notes stores the minimal number of banknotes for change value i
+  min_notes = [100 for i in range(V+1)]
+  min_notes[0] = 0
+
+  # We initially assume the coin system is optimal
+  optimal = True 
+  # Loop over all change values 
+  for i in range(1,V+1):
+    if optimal:
+      # Loop over all banknotes
+      for j in range(notes):
+        # If true, then banknote cs[j] can be used to make change value i
+        if i - cs[j] >= 0:  
+          # If using the current banknote gives a rep using fewer notes
+          if min_notes[i-cs[j]]+1 < min_notes[i]:
+            optimal = True
+            # Updates the min_notes array
+            min_notes[i] = min_notes[i-cs[j]]+1
+            # Updates the representation array
+            reps[i] = reps[i-cs[j]].copy()
+            reps[i][j] = reps[i][j] + 1
+          # If in using the given note we tie our previous value
+          elif min_notes[i-cs[j]]+1 == min_notes[i]:
+              temp_rep = reps[i-cs[j]].copy()
+              temp_rep[j] = temp_rep[j] + 1
+              # If there are two distinct representations that use the same number of notes
+              if reps[i] != temp_rep:
+                  optimal = False
+
+  # Converts the representations to footnotes
+  for i in range(V+1):
+    for j in range(notes):
+      if reps[i][j] != 0:
+          reps[i][j] = 1
+
+  # Returns 
+  return optimal, reps
+
+# Calculates the desired probability
+def prob_calc(fn):
+  # Initializes the number of congruent pairs to zero
+  n = 0
+
+  # Loops combinatorically over all distinct pairs of change values
+  for i in range(1,99):
+      for j in range(i+1,100):
+          if fn[i] == fn[j]:
+              n += 1
+
+  # Returns the desired probability
+  return 100/(2*n+100)
+
+# We can use the US coin system as the initial leader
+best_cs = [1, 5, 10, 20, 50]
+# The congruence probability of the US coin system
+max_prob = 100/(2*188+100)
+
+for i in range(2,97):
+  for j in range(i+1,98):
+    for k in range(j+1,99):
+      for l in range(k+1,100):
+        # The given coin system
+        CS = [1,i,j,k,l]
+        optimal, fn = is_optimal(CS)
+
+        if optimal:
+          if prob_calc(fn) > max_prob:
+            # Update the probability and the current leader
+            max_prob = prob_calc(fn)
+            best_cs = CS
+
+print(CS)
+print(max_prob)
